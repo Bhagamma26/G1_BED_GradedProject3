@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Ticket</title>
+</head>
+<body>
+
+<h2>Ticket Details</h2>
+
+<p><b>Title:</b> <span th:text="${ticket.title}"></span></p>
+<p><b>Short Description:</b> <span th:text="${ticket.shortDescription}"></span></p>
+<p><b>Description:</b> <span th:text="${ticket.description}"></span></p>
+
+<a href="/">Back</a>
+
+</body>
+</html>

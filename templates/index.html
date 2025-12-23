@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ticket Tracker</title>
+    <style>
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #f4f4f4; }
+        a { margin-right: 8px; }
+    </style>
+</head>
+<body>
+
+<h2>Ticket Tracker Application</h2>
+
+<form action="/search" method="get">
+    <input type="text" name="keyword" placeholder="Search by title or description">
+    <button type="submit">Search</button>
+</form>
+
+<br>
+
+<a href="/new">Create New Ticket</a>
+
+<br><br>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Short Description</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="ticket : ${tickets}">
+        <td th:text="${ticket.title}"></td>
+        <td th:text="${ticket.shortDescription}"></td>
+        <td>
+            <a th:href="@{/view/{id}(id=${ticket.id})}">View</a>
+            <a th:href="@{/edit/{id}(id=${ticket.id})}">Edit</a>
+            <a th:href="@{/delete/{id}(id=${ticket.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
